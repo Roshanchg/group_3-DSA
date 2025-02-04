@@ -110,7 +110,6 @@ int main(){
         break;
     
     case 2:
-    cout<<"HELLO\n";
         if(sortedFlag==0){
             cout<<"\nArray was already sorted!, Resetting the Array!"<<endl;
             reset(copy,array,n);
