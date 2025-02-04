@@ -1,5 +1,4 @@
 #include<iostream>
-#include<stdlib.h> // for malloc
 #include<chrono> // for time
 #include<time.h> // for changin seed
 #include<cstdlib> // for rng
@@ -212,8 +211,8 @@ void mergesort(int* arr,int size){
     if (size<2){return;}
 
     int mid=size/2;
-    int* left=(int* )malloc(sizeof(int)*mid);
-    int* right=(int* )malloc(sizeof(int)*(size-mid));
+    int* left=new int[mid];
+    int* right=new int[size-mid];
 
     for(int i=0;i<mid;i++){
         left[i]=arr[i];
@@ -228,8 +227,8 @@ void mergesort(int* arr,int size){
 
     merge(arr,left,right,mid,size-mid);
 
-    free(left);
-    free(right);
+    delete[] left;
+    delete[] right;
 }
 
 void merge(int* arr,int* left,int* right, int leftsize,int rightsize){
